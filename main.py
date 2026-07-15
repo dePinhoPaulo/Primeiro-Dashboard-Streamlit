@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 
+# Data frame login
+df_login = pd.read_csv('usuarios.csv')
+
 # Pagina: Edições
 st.set_page_config(page_title="Copas do Mundo", page_icon="🏆")
 #st.sidebar.header("Edições")
@@ -18,7 +21,11 @@ if not st.session_state['logado']:
         botao_entrar = st.form_submit_button('Entrar')
 
     if botao_entrar:
-        if usuario == 'admin' and senha == '1234':
+        # Verifica se existe uma linha onde o usuario e a senha batem com o digitado
+        usuario_valido = df_login[(df_login['usuario'] == usuario) & (df_login['senha'].astype(str) == senha)]
+
+        # Se a tabela filtrada não estiver vazia, o login deu certo!
+        if not usuario_valido.empty:
             st.session_state['logado'] = True
             st.success('Login realizado com sucesso!')
             st.rerun()
