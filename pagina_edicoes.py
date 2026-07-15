@@ -47,3 +47,8 @@ st.bar_chart(
     x='Year',
     y='GoalsScored'
 )
+
+col1, col2, col3 = st.columns(3)
+col1.metric(label="Total de Gols", value=df_copas_filtrado['GoalsScored'].sum())
+col2.metric(label="Média de Gols por Edição", value=round(df_copas_filtrado['GoalsScored'].mean(), 1))
+col3.metric(label="Total de Partidas", value=df_copas_filtrado['MatchesPlayed'].sum())
