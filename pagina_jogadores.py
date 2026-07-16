@@ -13,7 +13,7 @@ df_paises_artilheiros = (
 )
 
 # Pagina: Edições
-st.set_page_config(page_title="Jogadores", page_icon="🏆")
+st.set_page_config(page_title="Jogadores", page_icon="⚽")
 #st.sidebar.header("Edições")
 
 # Painel

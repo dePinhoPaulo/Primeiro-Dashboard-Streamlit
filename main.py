@@ -37,10 +37,11 @@ else:
         st.session_state['logado'] = False
         st.rerun()
 
-    # Painel
+    # Side bar
     home = st.Page('home.py', title='Home', icon='🏚', default=True)
     edicoes = st.Page('pagina_edicoes.py', title='Edições', icon='🏆')
     jogadores = st.Page('pagina_jogadores.py', title='Jogadores', icon='⚽')
+    historico = st.Page('historico_selecoes.py', title='Histórico de Seleções & Desempenho', icon='📉')
 
-    navegacao = st.navigation([home, edicoes, jogadores])
+    navegacao = st.navigation([home, edicoes, jogadores, historico])
     navegacao.run()
